@@ -26,3 +26,7 @@ Install all the dependencies - `npm install`
 ### Running the project
 
 Run `npm start` command.
+
+### Live Preview
+
+[https://kowalewskipawel.github.io/5-Days/](https://kowalewskipawel.github.io/5-Days/)

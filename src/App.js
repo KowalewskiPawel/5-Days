@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
-import StyledLogo from "./components/Logo/Logo";
-import StyledInput from "./components/StyledInput/StyledInput";
-import DateDisplay from "./components/DateDisplay/DateDisplay";
-import CityName from "./components/CityName/CityName";
-import Forecast from "./components/Forecast/Forecast";
-import DaysSelection from "./components/DaysSelection/DaysSelection";
+import StyledLogo from "./components/Logo";
+import StyledInput from "./components/StyledInput";
+import DateDisplay from "./components/DateDisplay";
+import CityName from "./components/CityName";
+import Forecast from "./components/Forecast";
+import DaysSelection from "./components/DaysSelection";
 
 import "./styles/app.css";
 
