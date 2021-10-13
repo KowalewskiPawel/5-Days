@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/5-Days/static/css/main.727d3db6.chunk.css",
-    "main.js": "/5-Days/static/js/main.85c9c0c8.chunk.js",
-    "main.js.map": "/5-Days/static/js/main.85c9c0c8.chunk.js.map",
+    "main.js": "/5-Days/static/js/main.a192a8de.chunk.js",
+    "main.js.map": "/5-Days/static/js/main.a192a8de.chunk.js.map",
     "runtime-main.js": "/5-Days/static/js/runtime-main.dd25789e.js",
     "runtime-main.js.map": "/5-Days/static/js/runtime-main.dd25789e.js.map",
-    "static/js/2.d5bdc56d.chunk.js": "/5-Days/static/js/2.d5bdc56d.chunk.js",
-    "static/js/2.d5bdc56d.chunk.js.map": "/5-Days/static/js/2.d5bdc56d.chunk.js.map",
+    "static/js/2.e9870f23.chunk.js": "/5-Days/static/js/2.e9870f23.chunk.js",
+    "static/js/2.e9870f23.chunk.js.map": "/5-Days/static/js/2.e9870f23.chunk.js.map",
     "index.html": "/5-Days/index.html",
     "static/css/main.727d3db6.chunk.css.map": "/5-Days/static/css/main.727d3db6.chunk.css.map",
-    "static/js/2.d5bdc56d.chunk.js.LICENSE.txt": "/5-Days/static/js/2.d5bdc56d.chunk.js.LICENSE.txt",
+    "static/js/2.e9870f23.chunk.js.LICENSE.txt": "/5-Days/static/js/2.e9870f23.chunk.js.LICENSE.txt",
     "static/media/cloud.736c978f.svg": "/5-Days/static/media/cloud.736c978f.svg",
     "static/media/crescent.2d21af09.svg": "/5-Days/static/media/crescent.2d21af09.svg",
     "static/media/humidity.4d1cec5c.svg": "/5-Days/static/media/humidity.4d1cec5c.svg",
@@ -17,8 +17,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.dd25789e.js",
-    "static/js/2.d5bdc56d.chunk.js",
+    "static/js/2.e9870f23.chunk.js",
     "static/css/main.727d3db6.chunk.css",
-    "static/js/main.85c9c0c8.chunk.js"
+    "static/js/main.a192a8de.chunk.js"
   ]
 }
