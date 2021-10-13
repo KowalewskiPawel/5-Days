@@ -1,9 +1,25 @@
+import { useCallback } from "react";
+import debounce from "lodash.debounce";
+
 import Input from "./Input";
 
-const StyledInput = ({ setCityName }) => (
-  <Input
-    placeholder='Enter city name'
-    onChange={(e) => setCityName(e.target.value)}></Input>
-);
+const StyledInput = ({ setCityName }) => {
+  // eslint-disable-next-line
+  const debouncedSetCityName = useCallback(
+    debounce((value) => setCityName(value), 300),
+    []
+  );
+
+  const handleChange = (event) => {
+    const { value } = event.target;
+    debouncedSetCityName(value);
+  };
+
+  return (
+    <Input
+      placeholder='Enter city name'
+      onChange={(e) => handleChange(e)}></Input>
+  );
+};
 
 export default StyledInput;
