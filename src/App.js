@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 
+import filterDates from "./utils/filterDates";
+import filterDays from "./utils/filterDays";
+
 import StyledLogo from "./components/Logo";
 import StyledInput from "./components/StyledInput";
 import DateDisplay from "./components/DateDisplay";
 import CityName from "./components/CityName";
 import Forecast from "./components/Forecast";
 import DaysSelection from "./components/DaysSelection";
+
+import getForecast from "./services/getForecast";
 
 import "./styles/app.css";
 
@@ -14,29 +19,21 @@ const App = () => {
   const [forecast, setForecast] = useState(null);
   const [day, setDay] = useState(0);
 
-  const dates = [];
-  const days = [];
+  let dates = [];
+  let days = [];
 
   if (forecast?.list) {
-    for (let i = 0; i < forecast.list.length; i++) {
-      if (dates.includes(forecast.list[i].dt_txt.split(" ")[0])) continue;
-      dates.push(forecast.list[i].dt_txt.split(" ")[0]);
-    }
-
-    for (let i = 0; i < 5; i++) {
-      days.push(
-        forecast.list.filter((item) => item.dt_txt.split(" ")[0] === dates[i])
-      );
-    }
+    dates = filterDates(forecast);
+    days = filterDays(forecast, dates);
   }
 
   useEffect(() => {
-    fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
-    )
-      .then((response) => response.json())
-      .then((data) => setForecast(data))
-      .catch((err) => console.error(err));
+    const fetchForecast = async () => {
+      const fetchedForecast = await getForecast(cityName);
+      return setForecast(fetchedForecast);
+    };
+
+    fetchForecast();
   }, [cityName]);
 
   return (
