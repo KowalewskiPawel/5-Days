@@ -1,5 +1,5 @@
 <br />
-<h3 align="center">5 Days</h3>
+<h1 align="center">5 Days</h1>
 
 ## About The Project
 
