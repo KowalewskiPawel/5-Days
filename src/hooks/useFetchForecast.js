@@ -19,6 +19,13 @@ const dataFetchReducer = (state, action) => {
         isError: true,
         forecast: action.payload,
       };
+    case "CACHED":
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        forecast: action.payload,
+      };
     case "FETCH_FAILURE":
       return { ...state, isLoading: false, isError: true };
     default:
@@ -39,12 +46,19 @@ const useFetchForecast = (initialCityName) => {
     const fetchForecast = () => {
       dispatch({ type: "FETCH_INIT" });
 
+      const isCached = sessionStorage.getItem(cityName);
+
+      if (isCached) {
+        return dispatch({ type: "CACHED", payload: JSON.parse(isCached) });
+      }
+
       getForecast(cityName)
         .then((data) => {
           if (data.cod === "404") {
+            sessionStorage.setItem(cityName, JSON.stringify(data));
             return dispatch({ type: "NOT_FOUND", payload: data });
           }
-
+          sessionStorage.setItem(cityName, JSON.stringify(data));
           return dispatch({ type: "FETCH_SUCCESS", payload: data });
         })
         .catch(() => dispatch({ type: "FETCH_FAILURE" }));
