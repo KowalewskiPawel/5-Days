@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import filterDates from "./utils/filterDates";
 import filterDays from "./utils/filterDays";
+
+import useFetchForecast from "./hooks/useFetchForecast";
 
 import StyledLogo from "./components/Logo";
 import StyledInput from "./components/StyledInput";
@@ -10,14 +12,12 @@ import CityName from "./components/CityName";
 import Forecast from "./components/Forecast";
 import DaysSelection from "./components/DaysSelection";
 
-import getForecast from "./services/getForecast";
-
 import "./styles/app.css";
 
 const App = () => {
-  const [cityName, setCityName] = useState("");
-  const [forecast, setForecast] = useState(null);
   const [day, setDay] = useState(0);
+
+  const [{ forecast, isLoading }, doFetch] = useFetchForecast("");
 
   let dates = [];
   let days = [];
@@ -27,23 +27,14 @@ const App = () => {
     days = filterDays(forecast, dates);
   }
 
-  useEffect(() => {
-    const fetchForecast = async () => {
-      const fetchedForecast = await getForecast(cityName);
-      return setForecast(fetchedForecast);
-    };
-
-    fetchForecast();
-  }, [cityName]);
-
   return (
     <main>
       <StyledLogo />
-      <StyledInput setCityName={setCityName} />
+      <StyledInput doFetch={doFetch} />
       <DateDisplay />
       <CityName
         cityName={
-          forecast?.city?.name || "Please input correct name of the city"
+          isLoading ? "Loading" : forecast?.city?.name || forecast?.message
         }
       />
       <Forecast day={days[day]} />

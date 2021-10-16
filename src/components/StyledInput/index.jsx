@@ -3,10 +3,10 @@ import debounce from "lodash.debounce";
 
 import Input from "./Input";
 
-const StyledInput = ({ setCityName }) => {
+const StyledInput = ({ doFetch }) => {
   // eslint-disable-next-line
   const debouncedSetCityName = useCallback(
-    debounce((value) => setCityName(value), 300),
+    debounce((value) => doFetch(value), 300),
     []
   );
 
