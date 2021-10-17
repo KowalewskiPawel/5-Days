@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 const StyledImage = styled.img`
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   margin: 1rem 0.8rem;
 
   @media (max-width: 600px) {
