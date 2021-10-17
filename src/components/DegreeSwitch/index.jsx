@@ -1,6 +1,8 @@
+import { useState } from "react";
+import PropTypes from "prop-types";
+
 import StyledSwitch from "./StyledSwitch";
 import StyledSpan from "./StyledSpan";
-import { useState } from "react";
 
 const DegreeSwitch = ({ setOutterUnits }) => {
   const [units, setUnits] = useState("metric");
@@ -24,6 +26,10 @@ const DegreeSwitch = ({ setOutterUnits }) => {
       </label>
     </StyledSwitch>
   );
+};
+
+DegreeSwitch.propTypes = {
+  setOutterUnits: PropTypes.func.isRequired,
 };
 
 export default DegreeSwitch;

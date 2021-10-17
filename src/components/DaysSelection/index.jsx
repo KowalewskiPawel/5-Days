@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 import calculateAvgTempAndClouds from "../../utils/calculateAvgTempAndClouds";
 import displayTemperature from "../../utils/displayTemperature";
@@ -63,6 +64,20 @@ const DaysSelection = ({ dates, days, setDay, units }) => {
       })}
     </StyledSection>
   );
+};
+
+DaysSelection.defaultProps = {
+  dates: null,
+  days: null,
+  setDay: null,
+  units: null,
+};
+
+DaysSelection.propTypes = {
+  dates: PropTypes.array,
+  days: PropTypes.array,
+  setDay: PropTypes.func,
+  units: PropTypes.string,
 };
 
 export default DaysSelection;

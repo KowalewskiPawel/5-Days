@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import debounce from "lodash.debounce";
+import ProptTypes from "prop-types";
 
 import Input from "./Input";
 
@@ -21,6 +22,10 @@ const StyledInput = ({ doFetch }) => {
       placeholder='Enter city name'
       onChange={(e) => handleChange(e)}></Input>
   );
+};
+
+StyledInput.propTypes = {
+  doFetch: ProptTypes.func.isRequired,
 };
 
 export default StyledInput;

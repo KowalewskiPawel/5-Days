@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import displayTemperature from "../../utils/displayTemperature";
 
 import OutterContainer from "./OutterCointainer";
@@ -56,6 +58,16 @@ const Forecast = ({ day, units }) => {
       </InnerContainer>
     </OutterContainer>
   );
+};
+
+Forecast.defaultProps = {
+  day: null,
+  units: null,
+};
+
+Forecast.propTypes = {
+  day: PropTypes.array,
+  units: PropTypes.string,
 };
 
 export default Forecast;
