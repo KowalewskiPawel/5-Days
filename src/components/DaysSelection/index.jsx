@@ -2,7 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 
 import calculateAvgTempAndClouds from "../../utils/calculateAvgTempAndClouds";
-import displayTemperature from "../../utils/displayTemperature";
+import displayAvgTemperature from "../../utils/displayAvgTemperature";
 
 import StyledSection from "./StyledSection";
 import StyledDay from "./StyledDay";
@@ -53,10 +53,9 @@ const DaysSelection = ({ dates, days, setDay, units }) => {
               src={weatherIcon(averageTempAndClouds[index].averageClouds)}
             />
             <h4>
-              {displayTemperature(
-                null,
-                units,
-                averageTempAndClouds[index].averageTemp
+              {displayAvgTemperature(
+                averageTempAndClouds[index].averageTemp,
+                units
               )}
             </h4>
           </StyledDay>

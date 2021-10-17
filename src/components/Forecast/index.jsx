@@ -39,30 +39,17 @@ const Forecast = ({ day, units }) => {
       <InnerContainer>
         <span>
           <StyledImage src={Cloud} /> Morning Temperature:{" "}
-          <span>
-            {displayTemperature(morningTemp, units).includes("null")
-              ? "Data Not Available"
-              : displayTemperature(morningTemp, units)}
-          </span>{" "}
+          <span>{displayTemperature(morningTemp, units)}</span>{" "}
         </span>
         <span>
           <StyledImage src={Sun} /> Day Temperature:{" "}
-          <span>
-            {displayTemperature(dayTemp, units).includes("null")
-              ? "Data Not Available"
-              : displayTemperature(dayTemp, units)}
-          </span>{" "}
+          <span>{displayTemperature(dayTemp, units)}</span>{" "}
         </span>
       </InnerContainer>
       <InnerContainer>
         <span>
           <StyledImage src={Crescent} /> Night Temperature:{" "}
-          <span>
-            {" "}
-            {displayTemperature(nightTemp, units).includes("null")
-              ? "Data Not Available"
-              : displayTemperature(nightTemp, units)}
-          </span>{" "}
+          <span> {displayTemperature(nightTemp, units)}</span>{" "}
         </span>
         <span>
           <StyledImage src={Humidity} /> Humidity:{" "}
