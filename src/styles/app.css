@@ -4,5 +4,7 @@
   padding: 0;
 }
 body {
-  background: #2f313a;
+  width: auto;
+  height: 98vh;
+  background: linear-gradient(360deg, #2f313a 10.45%, #232329 100%);
 }

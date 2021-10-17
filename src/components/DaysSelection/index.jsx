@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import calculateAvgTempAndClouds from "../../utils/calculateAvgTempAndClouds";
+import displayTemperature from "../../utils/displayTemperature";
 
 import StyledSection from "./StyledSection";
 import StyledDay from "./StyledDay";
@@ -10,7 +11,7 @@ import Cloud from "../../assets/cloud.svg";
 import Humidity from "../../assets/humidity.svg";
 import Sun from "../../assets/sun.svg";
 
-const DaysSelection = ({ dates, days, setDay }) => {
+const DaysSelection = ({ dates, days, setDay, units }) => {
   const [selectedDay, setSelectedDay] = useState(0);
 
   if (!dates) return <></>;
@@ -50,7 +51,13 @@ const DaysSelection = ({ dates, days, setDay }) => {
             <StyledImage
               src={weatherIcon(averageTempAndClouds[index].averageClouds)}
             />
-            <h4>{averageTempAndClouds[index].averageTemp} °</h4>
+            <h4>
+              {displayTemperature(
+                null,
+                units,
+                averageTempAndClouds[index].averageTemp
+              )}
+            </h4>
           </StyledDay>
         );
       })}

@@ -6,6 +6,7 @@ import filterDays from "./utils/filterDays";
 import useFetchForecast from "./hooks/useFetchForecast";
 
 import StyledLogo from "./components/Logo";
+import DegreeSwitch from "./components/DegreeSwitch";
 import StyledInput from "./components/StyledInput";
 import DateDisplay from "./components/DateDisplay";
 import CityName from "./components/CityName";
@@ -16,6 +17,7 @@ import "./styles/app.css";
 
 const App = () => {
   const [day, setDay] = useState(0);
+  const [units, setUnits] = useState("metric");
 
   const [{ forecast, isLoading }, doFetch] = useFetchForecast("");
 
@@ -30,6 +32,7 @@ const App = () => {
   return (
     <main>
       <StyledLogo />
+      <DegreeSwitch setOutterUnits={setUnits} />
       <StyledInput doFetch={doFetch} />
       <DateDisplay />
       <CityName
@@ -37,8 +40,8 @@ const App = () => {
           isLoading ? "Loading" : forecast?.city?.name || forecast?.message
         }
       />
-      <Forecast day={days[day]} />
-      <DaysSelection dates={dates} days={days} setDay={setDay} />
+      <Forecast day={days[day]} units={units} />
+      <DaysSelection dates={dates} days={days} setDay={setDay} units={units} />
     </main>
   );
 };

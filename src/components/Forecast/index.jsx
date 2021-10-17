@@ -9,7 +9,7 @@ import Crescent from "../../assets/crescent.svg";
 import Humidity from "../../assets/humidity.svg";
 import Sun from "../../assets/sun.svg";
 
-const Forecast = ({ day }) => {
+const Forecast = ({ day, units }) => {
   if (!day) return <></>;
 
   const morningTemp = day.find(
@@ -37,17 +37,17 @@ const Forecast = ({ day }) => {
       <InnerContainer>
         <span>
           <StyledImage src={Cloud} /> Morning Temperature:{" "}
-          <span>{displayTemperature(morningTemp)}</span>{" "}
+          <span>{displayTemperature(morningTemp, units)}</span>{" "}
         </span>
         <span>
           <StyledImage src={Sun} /> Day Temperature:{" "}
-          <span>{displayTemperature(dayTemp)}</span>{" "}
+          <span>{displayTemperature(dayTemp, units)}</span>{" "}
         </span>
       </InnerContainer>
       <InnerContainer>
         <span>
           <StyledImage src={Crescent} /> Night Temperature:{" "}
-          <span>{displayTemperature(nightTemp)}</span>{" "}
+          <span>{displayTemperature(nightTemp, units)}</span>{" "}
         </span>
         <span>
           <StyledImage src={Humidity} /> Humidity:{" "}

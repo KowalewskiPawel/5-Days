@@ -12,6 +12,7 @@ const StyledInput = ({ doFetch }) => {
 
   const handleChange = (event) => {
     const { value } = event.target;
+
     debouncedSetCityName(value);
   };
 
