@@ -5,6 +5,7 @@
 }
 body {
   width: auto;
-  height: 98vh;
+  min-height: 98vh;
+  height: 100%;
   background: linear-gradient(360deg, #2f313a 10.45%, #232329 100%);
 }
