@@ -15,7 +15,7 @@ import Sun from "../../assets/sun.svg";
 const DaysSelection = ({ dates, days, setDay, units }) => {
   const [selectedDay, setSelectedDay] = useState(0);
 
-  if (!dates) return <></>;
+  if (dates.join("") === "") return <></>;
 
   let averageTempAndClouds;
 
