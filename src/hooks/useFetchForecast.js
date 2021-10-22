@@ -33,8 +33,8 @@ const dataFetchReducer = (state, action) => {
   }
 };
 
-const useFetchForecast = (cityNameAndUnits) => {
-  const [cityAndUnits, setCityAndUnits] = useState(cityNameAndUnits);
+const useFetchForecast = (initialCityName) => {
+  const [cityName, setCityName] = useState(initialCityName);
 
   const [state, dispatch] = useReducer(dataFetchReducer, {
     isLoading: false,
@@ -46,28 +46,28 @@ const useFetchForecast = (cityNameAndUnits) => {
     const fetchForecast = () => {
       dispatch({ type: "FETCH_INIT" });
 
-      const isCached = sessionStorage.getItem(cityAndUnits);
+      const isCached = sessionStorage.getItem(cityName);
 
       if (isCached) {
         return dispatch({ type: "CACHED", payload: JSON.parse(isCached) });
       }
 
-      getForecast(cityAndUnits)
+      getForecast(cityName)
         .then((data) => {
           if (data.cod === "404") {
-            sessionStorage.setItem(cityAndUnits, JSON.stringify(data));
+            sessionStorage.setItem(cityName, JSON.stringify(data));
             return dispatch({ type: "NOT_FOUND", payload: data });
           }
-          sessionStorage.setItem(cityAndUnits, JSON.stringify(data));
+          sessionStorage.setItem(cityName, JSON.stringify(data));
           return dispatch({ type: "FETCH_SUCCESS", payload: data });
         })
         .catch(() => dispatch({ type: "FETCH_FAILURE" }));
     };
 
     fetchForecast();
-  }, [cityAndUnits]);
+  }, [cityName]);
 
-  return [state, setCityAndUnits];
+  return [state, setCityName];
 };
 
 export default useFetchForecast;
