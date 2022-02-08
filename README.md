@@ -8,7 +8,7 @@ Weather forecast app that fetches the data from the API endpoint, calculates the
 ### Built With
 
 - [React](https://reactjs.org/)
-- [Styed Components](https://styled-components.com/)
+- [Styled Components](https://styled-components.com/)
 
 ### Prerequisites
 
